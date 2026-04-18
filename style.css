@@ -1,0 +1,104 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+body{
+    background-color: black;
+    color:white;
+}
+*{font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.left{
+   padding: 10px;
+    width: 25vw;
+
+}
+.right{
+    width:75vw;
+}
+.home{
+    
+}
+.home ul li{
+    gap: 15px;
+    display: flex;
+    width: 15px;
+    list-style: none;
+    padding-top: 14px;
+    font-weight: bold;
+}
+.heading{
+    gap: 15px;
+    display: flex;
+    width: 100%;
+    padding-top: 14px;
+    padding: 23px 14px;
+    
+    font-weight: bold;
+    align-items: center;
+    font-size: 13px;
+}
+.library{
+    min-height: 80vh;
+    position: relative;
+}
+.footer{
+    display:flex;
+    font-size: 10px;
+    gap:13px;
+    color: grey;
+    position:absolute;
+    bottom:0;
+    padding: 10px 0;
+
+}
+.footer a{
+    color:grey;
+}
+.right{
+    margin: 16px 0;
+}
+
+.header{
+    display:flex;
+    justify-content: space-between;
+    background-color: rgb(19,19,19);
+}
+.header > *{
+padding: 20px; /* > this represents targeting direct childer of that class*/
+   
+}
+.spotifyPlaylist{
+    padding: 16px;
+}
+.cardContainer{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin: 30px;
+}
+ .card{
+    width: 200px;
+    padding:10px;
+    border-radius: 5px;
+    background-color: #252525;
+    position: relative;
+}
+.card > *{
+    padding-top: 10px;
+}
+.card img{
+    width: 100%;
+    object-fit: contain;
+}
+.play{
+    position:absolute;
+    top:168px;
+    right:17px;
+    opacity: 0;
+    transition: all 1s ease-out;
+}
+.card:hover .play {
+    opacity: 1;
+}
