@@ -77,6 +77,8 @@ padding: 20px; /* > this represents targeting direct childer of that class*/
     gap:10px;
     flex-wrap:wrap;
     margin: 30px;
+    overflow-y: scroll;
+    max-height:80vh;
 }
  .card{
     width: 200px;
