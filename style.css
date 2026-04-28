@@ -58,6 +58,7 @@ body{
 }
 .right{
     margin: 16px 0;
+    position: relative;
 }
 
 .header{
@@ -103,4 +104,55 @@ padding: 20px; /* > this represents targeting direct childer of that class*/
 }
 .card:hover .play {
     opacity: 1;
+}
+.buttons > *{
+    margin: 0 12px;
+}
+.signupbtn{
+  background-color: rgb(19,19,19);
+  color: rgb(53, 51, 51);  
+  font-weight: bold;
+  border: none;
+  outline:none;
+cursor: pointer;
+font-size: 16px;
+}
+.signupbtn:hover{
+
+    color:white;
+    font-size: 17px;
+}
+.loginbtn{
+    background-color: white;
+    border-radius: 21px;
+    color: black;
+    font-weight: bold;
+    padding: 10px;
+    width: 79px;
+    cursor: pointer;
+    font-size: 16px;
+
+}
+.loginbtn:hover{
+    
+    font-weight: bold;
+     font-size: 17px;
+     
+    
+}
+.spotifyPlaylist{
+    position: relative;
+}
+.playbar{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(1, 52, 1);
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+}
+.songbuttons img{
+    width: 30px;
+    height: 30px;
 }
