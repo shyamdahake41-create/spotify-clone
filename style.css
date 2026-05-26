@@ -144,15 +144,85 @@ font-size: 16px;
     position: relative;
 }
 .playbar{
-    position: absolute;
+    position: fixed;
     bottom: 0;
-    width: 100%;
+    width: 71.65vw;
     background-color: rgb(1, 52, 1);
     padding: 12px;
     display: flex;
+    flex-direction:column ;
     justify-content: center;
+    height:40px;
+    border-radius:20px;
+    
 }
 .songbuttons img{
     width: 30px;
     height: 30px;
+
 }
+
+.songlist{
+    height: 544px;
+overflow: auto;
+margin-bottom: 44px ;
+}
+.songlist ul{
+padding: 0 10px;
+
+}
+.songlist .info{
+    font-size: 13px;
+}
+.songlist ul li {
+    list-style-type: decimal;
+    display:flex;
+    align-items: center;
+    gap:10px;
+    cursor:pointer;
+    padding:12px 0 ; /*padding (top bottom)px (right left)px*/
+    border: 1px solid white;
+    margin: 12px;
+    padding: 13px;
+    border-radius: 5px;
+    justify-content: space-between;
+}
+.songlist ul li img{
+    width: 30px;
+    height: 30px; 
+}
+.seekbar{
+    
+    width:72vw;
+    border: 2px solid black;
+    position: absolute;
+    bottom: 0;
+    margin: 6px;
+    left: 0%;
+    
+    
+}
+.songbuttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.songbuttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.circle{
+width: 13px;
+height: 13px;
+position: absolute;
+bottom: 1px;
+border-radius: 6.5px;
+background-color: black;
+left: 0%;
+transition: left 0.5s;/*if we change left then you will see that circle moving from left smoothly not suddenly*/
+
+}
+
