@@ -1,4 +1,12 @@
 let currentSong = new Audio();
+function formatTime(seconds) {
+    if (isNaN(seconds)) return "00:00";
+
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60);
+
+    return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+}
 async function getSongs(){
    let a= await fetch("http://127.0.0.1:5500/music/")
    let response= await a.text(); 
@@ -19,7 +27,11 @@ async function getSongs(){
 }
 const playMusic = (track)=>{
    currentSong.src= "/music/" + track
-   currentSong.play()
+  currentSong.play()
+  
+   play.src="pause.svg"
+   document.querySelector(".songinfo").innerHTML = decodeURI(track)
+   document.querySelector(".songtime").innerHTML ="00:00 / 00:00"
 }
 async function main(){
    
@@ -27,6 +39,7 @@ async function main(){
    let songs=await getSongs()
    
    console.log(songs)
+   
    let songUL=document.querySelector(".songlist").getElementsByTagName("ul")[0] //take element from songlist by tag name ul
    for (const song of songs) {
       songUL.innerHTML=songUL.innerHTML+` <li>
@@ -50,5 +63,29 @@ playMusic(e.querySelector(".info").firstElementChild.innerHTML+".mp3")
   })//getElementsByTagName this dont return array it returns htmlcollection
   //to use for each we require array so use array.from .it converts array like  htmlcollection to actual array
 
+  //attach an event listener to next play previous in playbar
+  play.addEventListener("click",()=>{
+   if(currentSong.paused){
+      currentSong.play()
+      play.src="pause.svg"
+   }
+   else{
+      currentSong.pause()
+      play.src="play.svg"
+   }
+  })
+  //Listen for time update event
+  currentSong.addEventListener("timeupdate",()=>{
+   console.log(currentSong.currentTime,currentSong.duration)
+   document.querySelector(".songtime").innerHTML=`${formatTime(currentSong.currentTime)}/${formatTime(currentSong.duration)}`
+   document.querySelector(".circle").style.left=(currentSong.currentTime/currentSong.duration)*100 +"%";
+  })
+  //add event listener to seekbar
+  document.querySelector(".seekbar").addEventListener("click",e=>{
+   console.log(e)//here click on the statment consol will show and then you will find every thing listed like target offsetX
+   let percent = (e.offsetX/e.target.getBoundingClientRect().width)*100;
+   document.querySelector(".circle").style.left=percent + "%";
+currentSong.currentTime=((currentSong.duration)*percent)/100;
+  })
 }      
 main()
